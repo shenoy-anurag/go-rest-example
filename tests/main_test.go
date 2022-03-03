@@ -8,11 +8,15 @@ import (
 	"testing"
 	"time"
 
-	"simple-reddit/communities"
-	"simple-reddit/configs"
-	"simple-reddit/posts"
-	"simple-reddit/routes"
-	"simple-reddit/users"
+	"github.com/shenoy-anurag/go-rest-example/posts"
+
+	"github.com/shenoy-anurag/go-rest-example/users"
+
+	"github.com/shenoy-anurag/go-rest-example/routes"
+
+	"github.com/shenoy-anurag/go-rest-example/configs"
+
+	"github.com/shenoy-anurag/go-rest-example/communities"
 
 	"go.mongodb.org/mongo-driver/mongo"
 )

@@ -1,8 +1,9 @@
 package main
 
 import (
-	"simple-reddit/configs"
-	"simple-reddit/routes"
+	"github.com/shenoy-anurag/go-rest-example/routes"
+
+	"github.com/shenoy-anurag/go-rest-example/configs"
 )
 
 func main() {

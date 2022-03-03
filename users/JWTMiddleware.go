@@ -2,10 +2,11 @@ package users
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"simple-reddit/configs"
+	"github.com/shenoy-anurag/go-rest-example/configs"
 )
 
 func AuthorizeJWT() gin.HandlerFunc {

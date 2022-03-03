@@ -1,9 +1,11 @@
 package routes
 
 import (
-	"simple-reddit/communities"
-	"simple-reddit/posts"
-	"simple-reddit/users"
+	"github.com/shenoy-anurag/go-rest-example/users"
+
+	"github.com/shenoy-anurag/go-rest-example/posts"
+
+	"github.com/shenoy-anurag/go-rest-example/communities"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"

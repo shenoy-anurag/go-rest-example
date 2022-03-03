@@ -4,10 +4,13 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"simple-reddit/common"
-	"simple-reddit/configs"
-	"simple-reddit/users"
 	"time"
+
+	"github.com/shenoy-anurag/go-rest-example/configs"
+
+	"github.com/shenoy-anurag/go-rest-example/users"
+
+	"github.com/shenoy-anurag/go-rest-example/common"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
@@ -26,7 +29,7 @@ var validate = validator.New()
 func createCommunityInDB(community CreateCommunityRequest) (result *mongo.InsertOneResult, err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	
+
 	newCommunity, err := ConvertCommunityRequestToCommunityDBModel(community)
 	if err != nil {
 		return result, err

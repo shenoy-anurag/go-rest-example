@@ -29,9 +29,9 @@ jobs:
       env:
         CI: true
         MONGO_URI: 'mongodb://localhost:27017'
-        DB_NAME: 'simple-reddit'
+        DB_NAME: 'go-rest-app'
         DB_PORT: 27017
-        TEST_DB_NAME: 'test-simple-reddit'
+        TEST_DB_NAME: 'test-go-rest-app'
         TEST_DB_PORT: 27017
         APP_ENV: 'development'
         JWT_SECRET: 'my-local-secret'

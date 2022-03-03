@@ -3,9 +3,11 @@ package posts
 import (
 	"context"
 	"net/http"
-	"simple-reddit/common"
-	"simple-reddit/configs"
 	"time"
+
+	"github.com/shenoy-anurag/go-rest-example/configs"
+
+	"github.com/shenoy-anurag/go-rest-example/common"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

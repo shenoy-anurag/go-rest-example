@@ -1,4 +1,4 @@
-module simple-reddit
+module github.com/shenoy-anurag/go-rest-example
 
 go 1.17
 
