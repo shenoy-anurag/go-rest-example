@@ -2,10 +2,6 @@
 
 The backend of this project is written in Go.
 
-## Contributors:
-- Anurag Shenoy
-- Ganesan Santhanam
-
 ## Overview:
 
 ### Design Pattern: 
