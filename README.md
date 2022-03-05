@@ -1,5 +1,7 @@
 # Backend
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/shenoy-anurag/go-rest-example)](https://goreportcard.com/report/github.com/shenoy-anurag/go-rest-example)
+
 The backend of this project is written in Go.
 
 ## Overview:
