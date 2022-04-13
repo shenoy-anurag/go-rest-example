@@ -1,9 +1,8 @@
 [Unit]
-Description=Service that keeps running the echo-server from startup
+Description=Service that runs Simple Reddit's backend Server.
 
 [Install]
 WantedBy=multi-user.target
-After=network.target
 
 [Service]
 Type=simple
