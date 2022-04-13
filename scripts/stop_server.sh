@@ -3,6 +3,7 @@ SIMPLE_REDDIT_PID=$(ps -A -o pid,cmd|grep simple-reddit-build | grep -v grep |he
 echo $SIMPLE_REDDIT_PID
 if [[ -n $SIMPLE_REDDIT_PID ]]; 
 then
+    echo "Stopping Server."
     kill -9 $SIMPLE_REDDIT_PID
     echo "Stopped Server."
 else
