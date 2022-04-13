@@ -4,7 +4,7 @@ echo $SIMPLE_REDDIT_PID
 if [[ -n $SIMPLE_REDDIT_PID ]]; 
 then
     echo "Stopping Server."
-    kill -9 $SIMPLE_REDDIT_PID
+    kill -s 9 $SIMPLE_REDDIT_PID
     echo "Stopped Server."
 else
     echo "Server is already stopped."
