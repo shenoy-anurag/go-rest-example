@@ -5,3 +5,4 @@ sudo /usr/local/go/bin/go build -o simple-reddit-build main.go  # due to permiss
 echo "Running server..."
 nohup ./simple-reddit-build &; disown
 echo "Server is now up!"
+ 
