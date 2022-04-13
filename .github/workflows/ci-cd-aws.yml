@@ -32,9 +32,6 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-duration-seconds: 1200
           role-session-name: ci-session
-      # Step 5
-      - name: Run Application
-        run: go run main.go
 
   continuous-deployment:
     runs-on: ubuntu-latest
