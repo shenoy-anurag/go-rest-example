@@ -20,4 +20,6 @@ jobs:
 
     - name: Build
       run: |
+        cd backend
+        ls
         go build main.go

@@ -8,15 +8,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/shenoy-anurag/go-rest-example/posts"
-
-	"github.com/shenoy-anurag/go-rest-example/users"
-
-	"github.com/shenoy-anurag/go-rest-example/routes"
-
-	"github.com/shenoy-anurag/go-rest-example/configs"
-
-	"github.com/shenoy-anurag/go-rest-example/communities"
+	"simple-reddit/comments"
+	"simple-reddit/communities"
+	"simple-reddit/configs"
+	"simple-reddit/posts"
+	"simple-reddit/profiles"
+	"simple-reddit/routes"
+	"simple-reddit/users"
 
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -46,8 +44,10 @@ func CreateCollections(MongoDB *mongo.Database) {
 
 func ReplaceCollectionObjects(MongoDB *mongo.Database) {
 	users.UsersCollection = configs.GetCollection(MongoDB, users.UsersCollectionName)
+	profiles.ProfileCollection = configs.GetCollection(MongoDB, profiles.ProfilesCollectionName)
 	communities.CommunityCollection = configs.GetCollection(MongoDB, communities.CommunitiesCollectionName)
 	posts.PostsCollection = configs.GetCollection(MongoDB, posts.PostsCollectionName)
+	comments.CommentsCollection = configs.GetCollection(MongoDB, comments.CommentsCollectionName)
 }
 
 func TestMain(m *testing.M) {

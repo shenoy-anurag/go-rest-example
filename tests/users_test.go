@@ -5,13 +5,10 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"simple-reddit/common"
+	t_utils "simple-reddit/test_utils"
+	"simple-reddit/users"
 	"testing"
-
-	"github.com/shenoy-anurag/go-rest-example/users"
-
-	t_utils "github.com/shenoy-anurag/go-rest-example/test_utils"
-
-	"github.com/shenoy-anurag/go-rest-example/common"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -1,11 +1,11 @@
 package routes
 
 import (
-	"github.com/shenoy-anurag/go-rest-example/users"
-
-	"github.com/shenoy-anurag/go-rest-example/posts"
-
-	"github.com/shenoy-anurag/go-rest-example/communities"
+	"simple-reddit/comments"
+	"simple-reddit/communities"
+	"simple-reddit/posts"
+	"simple-reddit/profiles"
+	"simple-reddit/users"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -27,6 +27,8 @@ func SetupRouter() *gin.Engine {
 	users.Routes(router)
 	communities.Routes(router)
 	posts.Routes(router)
+	profiles.Routes(router)
+	comments.Routes(router)
 
 	return router
 }

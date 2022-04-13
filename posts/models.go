@@ -12,9 +12,10 @@ type PostDBModel struct {
 	CommunityID primitive.ObjectID `bson:"community_id"`
 	UserName    string             `bson:"username"`
 	Title       string             `bson:"title"`
-	Body        string             `json:"body"`
+	Body        string             `bson:"body"`
 	Upvotes     int                `bson:"upvotes"`
 	Downvotes   int                `bson:"downvotes"`
+	Ranking     int                `bson:"ranking"`
 	CreatedAt   time.Time          `bson:"created_at"`
 }
 
@@ -28,6 +29,29 @@ type CreatePostRequest struct {
 type GetPostRequest struct {
 	UserName    string             `json:"username" validate:"required"`
 	CommunityID primitive.ObjectID `json:"community_id" validate:"required"`
+}
+
+type DeletePostRequest struct {
+	ID       primitive.ObjectID `json:"id" validate:"required"`
+	UserName string             `json:"username" validate:"required"`
+}
+
+type EditPostRequest struct {
+	ID       primitive.ObjectID `json:"id" validate:"required"`
+	UserName string             `json:"username" validate:"required"`
+	Title    string             `json:"title" validate:"required"`
+	Body     string             `json:"body" validate:"required"`
+}
+
+type VoteRequest struct {
+	ID       primitive.ObjectID `json:"id" validate:"required"`
+	UserName string             `json:"username" validate:"required"`
+	Vote int  `json:"vote" validate:"required"`
+}
+type GetFeedRequest struct {
+	PageNumber    int    `json:"pagenumber"`
+	NumberOfPosts int    `json:"numberofposts"`
+	Mode          string `json:"mode"`
 }
 
 type PostResponse struct {
@@ -49,6 +73,7 @@ func ConvertPostRequestToPostDBModel(postReq CreatePostRequest) PostDBModel {
 		Body:        postReq.Body,
 		Upvotes:     1,
 		Downvotes:   0,
+		Ranking:     0,
 		CreatedAt:   time.Now().UTC(),
 	}
 }
@@ -63,4 +88,26 @@ func ConvertPostDBModelToPostResponse(postDB PostDBModel) (PostResponse, error) 
 		Downvotes: postDB.Downvotes,
 		CreatedAt: postDB.CreatedAt,
 	}, err
+}
+
+func ConvertEditPostReqToDeletePostReq(postReq EditPostRequest) (DeletePostRequest, error) {
+	var err error
+	return DeletePostRequest{
+		ID:       postReq.ID,
+		UserName: postReq.UserName,
+	}, err
+}
+
+func ConvertVotePostReqToDeletePostReq(votereq VoteRequest) (DeletePostRequest, error) {
+	var err error
+	return DeletePostRequest{
+		ID:       votereq.ID,
+		UserName: votereq.UserName,
+	}, err
+}
+
+func UpdatePostRanking(postDB PostDBModel) int {
+	// ranking = ( votes + comments / 3 ) / ( age_minutes + 120 )
+	rank := ((postDB.Upvotes - postDB.Downvotes) * 4) / (int(postDB.CreatedAt.Sub(time.Now().UTC())) * 100)
+	return rank
 }

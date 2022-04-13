@@ -25,13 +25,13 @@ jobs:
         go-version: 1.17
 
     - name: Run Tests
-      run: go test -v ./tests
+      run: go test -v ./backend/tests
       env:
         CI: true
         MONGO_URI: 'mongodb://localhost:27017'
-        DB_NAME: 'go-rest-app'
+        DB_NAME: 'simple-reddit'
         DB_PORT: 27017
-        TEST_DB_NAME: 'test-go-rest-app'
+        TEST_DB_NAME: 'test-simple-reddit'
         TEST_DB_PORT: 27017
         APP_ENV: 'development'
         JWT_SECRET: 'my-local-secret'
