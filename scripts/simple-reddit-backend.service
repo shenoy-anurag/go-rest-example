@@ -1,0 +1,16 @@
+[Unit]
+Description=Service that keeps running the echo-server from startup
+
+[Install]
+WantedBy=multi-user.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/simple-reddit/simple-reddit-build
+WorkingDirectory=/opt/simple-reddit
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
