@@ -1,0 +1,65 @@
+<div class='center' *ngIf='!getLogInStatus()'>
+    <form action=" /" id="myLogin" [formGroup]="form">
+        <br>
+        <!-- Username -->
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input name='username' formControlName="username" matInput #usrInput required placeholder="username"
+                value="">
+            <mat-error *ngIf="f['username'].touched && f['username'].invalid">
+                Username cannot be empty
+            </mat-error>
+        </mat-form-field>
+        
+        <!-- password -->
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" name="password" formControlName=password #usrPwd
+                required placeholder="password" value="">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+            <mat-error *ngIf="f['password'].touched && f['password'].invalid">
+                Password cannot be empty
+            </mat-error>
+        </mat-form-field>
+
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <!-- Routing Links -->
+                &nbsp;
+                <td>
+                    <div *ngIf="usrLoggedIn">
+                        <button name='logoutbutton' class='full-width hover-class1' mat-raised-button color="primary"
+                            (click)="getLogOut()">
+                            Log Out
+                        </button>
+                    </div>
+                    <div *ngIf=!usrLoggedIn>
+                        <button name='loginbutton' class='full-width hover-class1' mat-raised-button color="primary"
+                            (click)="getLogIn(usrInput.value, usrPwd.value)">
+                            Log In
+                        </button>
+                    </div>
+                </td>
+                &nbsp;
+                &nbsp;
+                <td>
+                    <button class='full-width hover-class2' mat-raised-button color="accent" a routerLink="/signupform">
+                        Sign Up
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--Scroll to top-->
+
+<div class="scroll-to-top " [ngClass]="{'show-scrollTop': windowScrolled}">
+    <button type="button" class="btn active hover-class3" data-toggle="button" aria-pressed="true" (click)="scrollToTop()">
+        <i class="fas fa-chevron-up" ></i>
+        Top
+    </button>
+  </div>
+    

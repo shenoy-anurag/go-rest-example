@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+    <br>
+    <!-- Username, until cookies are made -->
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input name='username' formControlName="username" matInput #username required placeholder="JohnDoe" value="">
+        <mat-error *ngIf="f['username'].touched && f['username'].invalid">
+            Username cannot be empty
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Community Name -->
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input name='name' formControlName="name" matInput type="text" #name required placeholder="Community Name" value="">
+        <mat-error *ngIf="f['name'].touched && f['name'].invalid">
+            Name cannot be empty
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Delete User if the authentication is Succesfull-->
+    <button class='full-width hover-class' mat-raised-button color="primary" (click)="deletesubreddit(username.value, name.value)">
+        Delete Subreddit
+    </button>
+</form>

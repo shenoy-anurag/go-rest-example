@@ -1,47 +1,81 @@
-# Backend
+# Simple Reddit
 
-The backend of this project is written in Go.
+https://github.com/shenoy-anurag/simple-reddit
 
-## Contributors:
-- Anurag Shenoy
-- Ganesan Santhanam
+[![go build](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/go-build.yml/badge.svg?branch=main)](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/go-build.yml)
+[![angular build](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/angular-build.yml/badge.svg?branch=main)](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/angular-build.yml)
+[![AWS Deploy](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/ci-cd-aws.yml/badge.svg)](https://github.com/shenoy-anurag/simple-reddit/actions/workflows/ci-cd-aws.yml)
 
-## Overview:
+Frontend is deployed to <http://3.21.236.152:4200/>
 
-### Design Pattern: 
-We will try to adhere to Domain Driven Design (DDD) pattern.
-See more here: <https://www.citerus.se/go-ddd/>
+Backend is Deployed to <http://3.21.236.152:8080/ping>
 
-### Pre-requisites:
-1. Go version `1.17.x` (`1.17.6` is used for this project)
-2. MongoDB version `5.x.x` (`5.0.4` to be exact)
-3. MongoDB Database Tools version `100.5.1`
+### Description:
 
-#### Installing Go:
-Install version `1.17.6` from <https://go.dev/> using the steps given here: <https://go.dev/doc/install>.
+Simple Reddit is inspired from THE Reddit. It is being built as semester long project for the course Software Engineering - CEN 5035 at the University of Florida. Simple Reddit is a forum for anyone to post content and comment on posts built using Angular JS, Go, and MongoDB.
 
-It is recommended to use a package manager such as `homebrew` (for MacOS <https://brew.sh/>) or the relevant package manager for your OS.
+The aim of the project is to use Agile methodologies to quickly develop shippable code and to iteratively improve the product based on feedback.
 
-For MacOS: If using brew, run the command `brew install go@1.17` to install version 1.17.x. More on how to install Go using brew here: <https://formulae.brew.sh/formula/go>.
+We are using Github Projects to manage our Sprints, writing user stories as Issues and building functionality to close issues and achieve milestones. We are also documenting the project on the repo’s [wiki](https://github.com/shenoy-anurag/simple-reddit/wiki).
 
-#### Installing MongoDB:
-Install version `5.0.4` of MongoDB using the steps given here: <https://docs.mongodb.com/manual/installation/> or you can download the correct file from <https://www.mongodb.com/download-center/community/releases/archive> if the version is an older one.
+Users will be able to:
 
-#### Installing MongoDB Database Tools:
-Install the mongo database tools from <https://docs.mongodb.com/database-tools/installation/installation/>. This project uses version `100.5.1` of MongoDB Database Tools.
+* Create accounts
+* Create communities
+* Create/edit/delete posts
+* View posts on communities
+* Comment on posts
+* Upvote/Downvote posts
+* Upvote/Downvote comments
+* Save posts and comments to their profile
 
-### Setting up MongoDB and the Database:
-1. After installing MongoDB, run the `mongod` daemon/service using the instructions from here <https://docs.mongodb.com/manual/installation/>.
-2. De-compress the db from the `db.zip` file provided in the repo.
-3. Restore the db using the `mongorestore` command like so `mongorestore db/`. An example using options: `mongorestore --host <host> --port <port number> <path to the backup>` and replace the values within `<>` appropriately. For eg. `mongorestore --host 127.0.0.1 --port 27017 /Path/to/database/folder`.
+## Built With
 
-More information on `mongorestore` command can be found here: <https://docs.mongodb.com/database-tools/mongorestore/>.
+* [Angular 14](https://angular.io/guide/setup-local) - The Angular JS framework used to develop the front end.
+* [GoLang](https://go.dev/) - The language used to develop the back end.
+* [MonogoDB](https://www.mongodb.com/) - Database used to store and manage information.
 
-And that's it! You have setup MongoDB service and restored the database.
+## Getting Started
+### Install
 
-### Running Server:
-`main.go` file (within backend folder) contains the code that will start the server. The server can be started using these commands: 
-1. `cd backend/`
-2. `go run main.go`.
+* [Angular 14 & AngularCLI](https://angular.io/guide/setup-local)
+* [Go](https://go.dev/doc/install)
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
 
-Now, you can follow the steps to get the frontend up and running and check out the web-app.
+More on how to setup the Back-end is available [here](https://github.com/shenoy-anurag/simple-reddit/blob/main/backend/Readme.md).
+
+More on how to setup the Front-end can be found [here](https://github.com/shenoy-anurag/simple-reddit/blob/main/frontend/forum-app/README.md).
+
+## Documentation, API Reference and Tutorials
+[Documentation](https://github.com/shenoy-anurag/simple-reddit/wiki), 
+[API Reference](https://github.com/shenoy-anurag/simple-reddit/wiki/API-Overview), 
+[Video Tutorials](https://github.com/shenoy-anurag/simple-reddit/wiki/Demo).
+
+## Sprint 1
+Summary of Sprint 1 is [here](https://github.com/shenoy-anurag/simple-reddit/blob/800f7f3ab01ff884d0130f8386bbea5ba3a27b0c/Sprint1.md).
+
+## Sprint 2
+Summary of Sprint 2 is [here](https://github.com/shenoy-anurag/simple-reddit/blob/main/Sprint2.md).
+
+## Sprint 3
+Summary of Sprint 3 is [here](https://github.com/shenoy-anurag/simple-reddit/blob/main/Sprint3.md).
+
+## Authors
+* **Manoj Jampana** - [manojjampana](https://github.com/manojjampana)
+* **John Ng** - [NgJohn15](https://github.com/NgJohn15)
+* **Ganesan Santhanam** - [ganesansanthanam](https://github.com/ganesansanthanam)
+* **Anurag Shenoy** - [shenoy-anurag](https://github.com/shenoy-anurag)
+
+## Backend Developers
+* [Anurag Shenoy](https://github.com/shenoy-anurag)
+* [Ganesan Santhanam](https://github.com/ganesansanthanam)
+
+## Frontend Developers
+* [John Ng](https://github.com/NgJohn15)
+* [Manoj Jampana](https://github.com/manojjampana)
+
+See also the list of [contributors](https://github.com/shenoy-anurag/forum/graphs/contributors) who participated in this project.
+
+## Contact information:
+
+For questions, please contact ngjohn15@gmail.com

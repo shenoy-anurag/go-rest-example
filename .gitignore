@@ -42,5 +42,8 @@ frontend/.history/*
 go.work
 
 
+# Angular JS
+
+
 # User defined
 *.env
