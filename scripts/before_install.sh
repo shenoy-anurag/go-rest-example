@@ -24,3 +24,4 @@ if [ -z $WHICH_AWS ]; then
 else
     echo "aws cli already installed"
 fi
+ 
