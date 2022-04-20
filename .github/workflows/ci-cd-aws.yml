@@ -39,7 +39,6 @@ jobs:
         run: |
           pwd
           ls
-          cd frontend/forum-app
           aws s3 sync dist.tar.gz s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
           cd ../..
 
