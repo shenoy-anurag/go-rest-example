@@ -42,7 +42,9 @@ jobs:
           echo s3://${{ secrets.AWS_S3_BUCKET_NAME }}
           echo s3://${{ secrets.AWS_S3_BUCKET_NAME }} | sed 's/./& /g'
           aws s3 cp dist.tar.gz s3://${{ secrets.AWS_S3_BUCKET_NAME }}
+          pwd
           cd ../..
+          pwd
 
       # Step 7
       - name: Set up Go
@@ -52,6 +54,8 @@ jobs:
       # Step 8
       - name: Build
         run: |
+          pwd
+          ls
           cd backend
           go build main.go
       # Step 9
