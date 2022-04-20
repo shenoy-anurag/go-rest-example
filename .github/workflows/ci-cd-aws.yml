@@ -26,7 +26,6 @@ jobs:
       - name: Compress
         run: |
           tar -zcvf dist.tar.gz frontend/forum-app/dist
-          pwd
       # Step 5
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -37,37 +36,28 @@ jobs:
       # Step 6
       - name: Upload dist archive to S3 bucket
         run: |
-          pwd
-          ls
-          echo s3://${{ secrets.AWS_S3_BUCKET_NAME }}
-          echo s3://${{ secrets.AWS_S3_BUCKET_NAME }} | sed 's/./& /g'
           aws s3 cp dist.tar.gz s3://${{ secrets.AWS_S3_BUCKET_NAME }}
-          pwd
-          cd ../..
-          pwd
 
-      # Step 7
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17
-      # Step 8
-      - name: Build
-        run: |
-          pwd
-          ls
-          cd backend
-          go build main.go
-      # Step 9
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          role-duration-seconds: 1200
-          role-session-name: ci-session
+      # # Step 7
+      # - name: Set up Go
+      #   uses: actions/setup-go@v2
+      #   with:
+      #     go-version: 1.17
+      # # Step 8
+      # - name: Build
+      #   run: |
+      #     cd backend
+      #     go build main.go
+      # # Step 9
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ${{ secrets.AWS_REGION }}
+      #     role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      #     role-duration-seconds: 1200
+      #     role-session-name: ci-session
 
   continuous-deployment:
     runs-on: ubuntu-latest
